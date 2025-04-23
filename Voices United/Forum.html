@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - Voices United Samarai Murua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-500 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md">
+        <div class="logo text-xl font-bold ml-4">Voices United Samarai Murua</div>
+        <nav class="mr-4">
+            <ul class="flex space-x-4">
+                <li><a href="/" class="hover:text-blue-300 no-underline">Home</a></li>
+                <li><a href="/forum.html" class="hover:text-blue-300 no-underline">Forum</a></li>
+                <li><a href="/resources.html" class="hover:text-blue-300 no-underline">Resources</a></li>
+                 <li><a href="/watch.html" class="hover:text-blue-300 no-underline">Project Watch</a></li>
+                <li><a href="/register.html" class="hover:text-blue-300 no-underline">Register</a></li>
+                <li><a href="/about.html" class="hover:text-blue-300 no-underline">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto py-6">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Community Forum</h1>
+
+        <div id="forum-threads" class="space-y-4">
+            <div class="bg-white p-4 rounded-md shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-600">Example Thread Title</h3>
+                <p class="text-gray-700">Posted by: User1 on 2024-07-24</p>
+                <p class="text-gray-800 mt-2">This is an example of a forum thread.  Users can discuss various topics here.</p>
+                <button onclick="window.location.href='/thread.html'" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 mt-4">
+                    View Thread
+                </button>
+            </div>
+        </div>
+
+        <button id="create-thread-button" class="bg-green-500 text-white py-3 px-6 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 mt-6">
+            Create New Thread
+        </button>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md">
+        <p>© 2024 Voices United Samarai Murua. All rights reserved.</p>
+    </footer>
+
+    <script>
+        //  JavaScript to dynamically display forum threads (for now, some dummy data)
+        const forumThreadsElement = document.getElementById('forum-threads');
+        const createThreadButton = document.getElementById('create-thread-button');
+
+        const dummyThreads = [
+            {
+                title: "Discussion on Education Policy",
+                author: "User1",
+                date: "2024-07-24",
+                content: "What are your thoughts on the new education policy?",
+            },
+            {
+                title: "Community Infrastructure Projects",
+                author: "User2",
+                date: "2024-07-23",
+                content: "Let's discuss the ongoing infrastructure projects in our community.",
+            },
+             {
+                title: "Preserving our Cultural Heritage",
+                author: "User3",
+                date: "2024-07-22",
+                content: "How can we ensure that our cultural heritage is preserved for future generations?",
+            },
+        ];
+
+        function displayThreads() {
+            forumThreadsElement.innerHTML = ''; // Clear any existing content
+            dummyThreads.forEach((thread) => {
+                const threadElement = document.createElement('div');
+                threadElement.className = 'bg-white p-4 rounded-md shadow-sm';
+                threadElement.innerHTML = `
+                    <h3 class="text-xl font-semibold text-blue-600">${thread.title}</h3>
+                    <p class="text-gray-700">Posted by: ${thread.author} on ${thread.date}</p>
+                    <p class="text-gray-800 mt-2">${thread.content}</p>
+                     <button onclick="window.location.href='/thread.html'" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 mt-4">
+                        View Thread
+                    </button>
+                `;
+                forumThreadsElement.appendChild(threadElement);
+            });
+        }
+
+        // Initial display of threads
+        displayThreads();
+
+        //  event listener for the "Create New Thread" button.
+        createThreadButton.addEventListener('click', () => {
+            // In a real application, you would redirect to a form or modal for creating a new thread.
+            alert('You clicked Create New Thread.  This will eventually go to a form.');
+            //window.location.href = '/create-thread.html'; // would create a new page
+        });
+    </script>
+</body>
+</html>

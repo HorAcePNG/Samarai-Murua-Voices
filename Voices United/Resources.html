@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Voices United Samarai Murua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-500 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md">
+        <div class="logo text-xl font-bold ml-4">Voices United Samarai Murua</div>
+        <nav class="mr-4">
+            <ul class="flex space-x-4">
+                <li><a href="/" class="hover:text-blue-300 no-underline">Home</a></li>
+                <li><a href="/forum.html" class="hover:text-blue-300 no-underline">Forum</a></li>
+                <li><a href="/resources.html" class="hover:text-blue-300 no-underline">Resources</a></li>
+                 <li><a href="/watch.html" class="hover:text-blue-300 no-underline">Project Watch</a></li>
+                <li><a href="/register.html" class="hover:text-blue-300 no-underline">Register</a></li>
+                <li><a href="/about.html" class="hover:text-blue-300 no-underline">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto py-6">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Resources</h1>
+
+        <div id="resource-categories" class="space-y-4">
+            <div class="bg-white p-4 rounded-md shadow-sm">
+                <h2 class="text-xl font-semibold text-green-600 mb-2">Government Policies</h2>
+                <ul id="government-policies-list" class="list-disc list-inside">
+                    <li><a href="#" class="text-blue-500 hover:underline">Policy Document 1</a></li>
+                </ul>
+            </div>
+            <div class="bg-white p-4 rounded-md shadow-sm">
+                <h2 class="text-xl font-semibold text-green-600 mb-2">Development Reports</h2>
+                <ul id="development-reports-list" class="list-disc list-inside">
+                     <li><a href="#" class="text-blue-500 hover:underline">Report 1</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md">
+        <p>© 2024 Voices United Samarai Murua. All rights reserved.</p>
+    </footer>
+
+    <script>
+        //  JavaScript to dynamically display resources (for now, dummy data)
+        const governmentPoliciesList = document.getElementById('government-policies-list');
+        const developmentReportsList = document.getElementById('development-reports-list');
+
+        const dummyResources = {
+            "Government Policies": [
+                { title: "Education Act 2024", url: "#" },
+                { title: "Healthcare Reform Plan", url: "#" },
+            ],
+            "Development Reports": [
+                { title: "Annual Progress Report 2023", url: "#" },
+                { title: "Infrastructure Development Plan", url: "#" },
+            ],
+        };
+
+        function displayResources() {
+            governmentPoliciesList.innerHTML = ''; // Clear
+            developmentReportsList.innerHTML = '';
+
+            dummyResources["Government Policies"].forEach((policy) => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = policy.url;
+                link.textContent = policy.title;
+                link.className = 'text-blue-500 hover:underline';
+                listItem.appendChild(link);
+                governmentPoliciesList.appendChild(listItem);
+            });
+
+            dummyResources["Development Reports"].forEach((report) => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = report.url;
+                link.textContent = report.title;
+                 link.className = 'text-blue-500 hover:underline';
+                listItem.appendChild(link);
+                developmentReportsList.appendChild(listItem);
+            });
+        }
+
+        // Initial display of resources
+        displayResources();
+    </script>
+</body>
+</html>
